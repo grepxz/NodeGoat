@@ -1,0 +1,5 @@
+# Lab confinement: publish NodeGoat on loopback only (never on LAN interfaces).
+services:
+  web:
+    ports: !override
+      - "127.0.0.1:4000:4000"
