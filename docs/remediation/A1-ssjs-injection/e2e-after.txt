@@ -1,0 +1,15 @@
+# Upstream Cypress e2e suite (cypress/included:3.8.3) against branch fix/a1-ssjs-injection @ 56d6f55
+  │ ✔  allocations_spec.js                      00:03        4        4        -        -        - │
+  │ ✔  benefits_spec.js                         00:04        5        5        -        -        - │
+  │ ✔  contributions_spec.js                    00:03        4        4        -        -        - │
+  │ ✔  dashboard_spec.js                        00:02        4        4        -        -        - │
+  │ ✔  general_spec.js                          00:02        3        3        -        -        - │
+  │ ✔  learn_spec.js                            00:01        2        2        -        -        - │
+  │ ✔  login_spec.js                            00:05        8        8        -        -        - │
+  │ ✔  logout_spec.js                           00:02        3        3        -        -        - │
+  │ ✔  memos_spec.js                            00:03        4        4        -        -        - │
+  │ ✔  profile_spec.js                          00:04        5        5        -        -        - │
+  │ ✔  research_spec.js                         00:03        4        4        -        -        - │
+  │ ✔  signup_spec.js                           00:03        5        5        -        -        - │
+  │ ✔  tutorial_spec.js                         00:05       13       13        -        -        - │
+    ✔  All specs passed!                        00:47       64       64        -        -        -  
