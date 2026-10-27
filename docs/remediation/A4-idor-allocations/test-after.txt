@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: security: a user cannot read another user's allocations by id
+ok 1 - security: a user cannot read another user's allocations by id
+  ---
+  duration_ms: 36.9175
+  type: 'test'
+  ...
+# Subtest: security: threshold cannot inject into the query to list every user
+ok 2 - security: threshold cannot inject into the query to list every user
+  ---
+  duration_ms: 47.5181
+  type: 'test'
+  ...
+# Subtest: security: anonymous users are still redirected to login
+ok 3 - security: anonymous users are still redirected to login
+  ---
+  duration_ms: 3.4663
+  type: 'test'
+  ...
+# Subtest: functional: a user can read their own allocations
+ok 4 - functional: a user can read their own allocations
+  ---
+  duration_ms: 48.3374
+  type: 'test'
+  ...
+# Subtest: functional: a numeric threshold still filters the user's own allocations
+ok 5 - functional: a numeric threshold still filters the user's own allocations
+  ---
+  duration_ms: 55.9322
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 323.4353
