@@ -8,6 +8,21 @@ const ResearchHandler = require("./research");
 const tutorialRouter = require("./tutorial");
 const ErrorHandler = require("./error").errorHandler;
 
+// External hosts the /learn redirect may send users to (exact hostname match, https only)
+const LEARN_REDIRECT_HOSTS = ["www.khanacademy.org"];
+
+const isSafeLearnRedirect = url => {
+    if (typeof url !== "string") return false;
+    // Same-site path: one leading "/", no "//" or "/\" (protocol-relative), no whitespace
+    if (/^\/(?![/\\])[^\s\\]*$/.test(url)) return true;
+    try {
+        const { protocol, hostname } = new URL(url);
+        return protocol === "https:" && LEARN_REDIRECT_HOSTS.includes(hostname);
+    } catch (err) {
+        return false;
+    }
+};
+
 const index = (app, db) => {
 
     "use strict";
@@ -68,8 +83,12 @@ const index = (app, db) => {
 
     // Handle redirect for learning resources link
     app.get("/learn", isLoggedIn, (req, res) => {
-        // Insecure way to handle redirects by taking redirect url from query string
-        return res.redirect(req.query.url);
+        // Fix for A10 - Unvalidated Redirects: only follow allowlisted destinations
+        const { url } = req.query;
+        if (!isSafeLearnRedirect(url)) {
+            return res.sendStatus(400);
+        }
+        return res.redirect(url);
     });
 
     // Research Page
