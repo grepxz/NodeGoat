@@ -1,0 +1,1089 @@
+TAP version 13
+# Subtest: security: contribution fields are not evaluated as JavaScript
+not ok 1 - security: contribution fields are not evaluated as JavaScript
+  ---
+  duration_ms: 39.1594
+  type: 'test'
+  location: 'D:\\software\\DEvprojects\\NodeGoat\\test\\regression\\a1-ssjs-injection.test.js:19:1'
+  failureType: 'testCodeFailure'
+  error: 'server executed attacker-supplied JavaScript'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (D:\software\DEvprojects\NodeGoat\test\regression\a1-ssjs-injection.test.js:23:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: security: expressions are rejected rather than computed
+not ok 2 - security: expressions are rejected rather than computed
+  ---
+  duration_ms: 26.6935
+  type: 'test'
+  location: 'D:\\software\\DEvprojects\\NodeGoat\\test\\regression\\a1-ssjs-injection.test.js:27:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /Invalid contribution percentages/. Input:
+    
+    '<!DOCTYPE html>\n' +
+      '<html lang="en">\n' +
+      '\n' +
+      '<head>\n' +
+      '    <meta charset="utf-8">\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+      '    <meta name="description" content="">\n' +
+      '    <meta name="author" content="">\n' +
+      '\n' +
+      '    <title>OWASP Node.js Goat Project</title>\n' +
+      '\n' +
+      '    <!-- Bootstrap core CSS -->\n' +
+      '    <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">\n' +
+      '\n' +
+      '    <!-- Add custom CSS here -->\n' +
+      '    <link href="/vendor/theme/sb-admin.css" rel="stylesheet">\n' +
+      '    <link rel="stylesheet" href="/vendor/theme/font-awesome/css/font-awesome.min.css">\n' +
+      '    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-tour.css">\n' +
+      '    <!--[if lt IE 9]><script src="/vendor/html5shiv.js"><![endif]-->\n' +
+      '</head>\n' +
+      '\n' +
+      '<body>\n' +
+      '\n' +
+      '    <div id="wrapper">\n' +
+      '\n' +
+      '        <!-- Sidebar -->\n' +
+      '        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n' +
+      '            <!-- Brand and toggle get grouped for better mobile display -->\n' +
+      '            <div class="navbar-header">\n' +
+      '                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n' +
+      '                    <span class="sr-only">Toggle navigation</span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                </button>\n' +
+      '                <a class="navbar-brand" href="/dashboard">\n' +
+      '                    <span style="font-size: x-large">\n' +
+      '                        <span class="fa fa-bullseye"></span>Retire<b>Easy</b>\n' +
+      '                    </span>\n' +
+      '                    <span style="font-size: medium">Employee Retirement Savings Management</span>\n' +
+      '                </a>\n' +
+      '            </div>\n' +
+      '\n' +
+      '            <!--  Nav Links-->\n' +
+      '            <div class="collapse navbar-collapse navbar-ex1-collapse">\n' +
+      '                <!--  side nav -->\n' +
+      '                <ul class="nav navbar-nav side-nav">\n' +
+      '                    \n' +
+      '                    <li><a id="dashboard-menu-link" href="/"><i class="fa fa-dashboard"></i> Dashboard</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="contributions-menu-link" href="/contributions"><i class="fa fa-bar-chart-o"></i> Contributions</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="allocations-menu-link" href="/allocations/2"><i class="fa fa-table"></i> Allocations</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="memos-menu-link" href="/memos"><i class="fa fa-table"></i> Memos</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="profile-menu-link" href="/profile"><i class="fa fa-user"></i> Profile</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="learn-menu-link" target="_blank" href="/learn?url=https://www.khanacademy.org/economics-finance-domain/core-finance/investment-vehicles-tutorial/ira-401ks/v/traditional-iras"><i class="fa fa-edit"></i> Learning Resources</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="research-menu-link" href="/research"><i class="fa fa-table"></i> Research</a>\n' +
+      '                    </li>\n' +
+      '                    \n' +
+      '                    <li><a id="logout-menu-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>\n' +
+      '                    </li>\n' +
+      '                </ul>\n' +
+      '\n' +
+      '                <!-- top nav -->\n' +
+      '                <ul class="nav navbar-nav navbar-right navbar-user">\n' +
+      '\n' +
+      '                    <li class="dropdown user-dropdown">\n' +
+      '                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Doe <b class="caret"></b></a>\n' +
+      '                        <ul class="dropdown-menu">\n' +
+      '                            \n' +
+      '                            <li><a href="/profile"><i class="fa fa-user"></i> Profile</a>\n' +
+      '                            </li>\n' +
+      '                            <li class="divider"></li>\n' +
+      '                            \n' +
+      '                            <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a>\n' +
+      '                            </li>\n' +
+      '                        </ul>\n' +
+      '                    </li>\n' +
+      '                </ul>\n' +
+      '            </div>\n' +
+      '            <!-- /.navbar-collapse -->\n' +
+      '        </nav>\n' +
+      '\n' +
+      '        <div id="page-wrapper">\n' +
+      '\n' +
+      '            <div class="row">\n' +
+      '                <div class="col-lg-12">\n' +
+      '                    <!-- <h1> <small>Contributions</small></h1> -->\n' +
+      '                    <ol class="breadcrumb">\n' +
+      '                        <li class="active"><i class="fa"></i> Contributions</li>\n' +
+      '                    </ol>\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '            <!-- /.row -->\n' +
+      '\n' +
+      '            \n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        \n' +
+      '        <div class="row">\n' +
+      '            <div class="col-lg-12">\n' +
+      '                <div class="alert alert-dismissable alert-success">\n' +
+      '                    <button type="button" class="close" data-dismiss="alert">&times;</button>\n' +
+      '                    Contributions updated successfully.\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '        </div>\n' +
+      '        <!-- /.row -->\n' +
+      '         \n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '\n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        <div class="panel panel-info">\n' +
+      '            <div class="panel-heading">\n' +
+      '                <h3 class="panel-title">\n' +
+      '                    This screen allows you to change the\n' +
+      '                    <strong>payroll percentages</strong> deducted from your paycheck for each\n' +
+      '                    <strong>contribution type</strong>.\n' +
+      '                </h3>\n' +
+      '            </div>\n' +
+      '            <div class="panel-body">\n' +
+      '\n' +
+      '\n' +
+      '\n' +
+      '                <div class="table-responsive">\n' +
+      '                    <form method="POST" action="/contributions">\n' +
+      '                        <table class="table table-bordered table-hover tablesorter">\n' +
+      '                            <thead>\n' +
+      '                                <tr>\n' +
+      '                                    <th>Contribution Type</th>\n' +
+      '                                    <th>Payroll Contribution Percent\n' +
+      '                                        <br>(per pay period)\n' +
+      '                                        <br>\n' +
+      '                                    </th>\n' +
+      '                                    <th>New Payroll Contribution Percent\n' +
+      '                                        <br>(per pay period)\n' +
+      '                                        <br>\n' +
+      '                                    </th>\n' +
+      '                                </tr>\n' +
+      '                            </thead>\n' +
+      '                            <tbody>\n' +
+      '\n' +
+      '                                <tr>\n' +
+      '                                    <td>Employee Pre-Tax</td>\n' +
+      '                                    <td>5 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="preTax" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                                <tr>\n' +
+      '                                    <td>Roth Contribution</td>\n' +
+      '                                    <td>1 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="roth" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                                <tr>\n' +
+      '                                    <td>Employee After Tax</td>\n' +
+      '                                    <td>1 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="afterTax" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                            </tbody>\n' +
+      '                        </table>\n' +
+      '                        <!-- Fix for A8 - CSRF -->\n' +
+      '                        <!--\n' +
+      '                        <input type="hidden" name="_csrf" value=""></input>\n' +
+      '                        -->\n' +
+      '                        <button type="submit" class="btn btn-default">Submit</button>\n' +
+      '\n' +
+      '                    </form>\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '\n' +
+      '        </div>\n' +
+      '        <!-- /.row -->\n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        <div class="panel panel-default">\n' +
+      '            <div class="panel-heading">\n' +
+      '                <strong>Reminder:</strong>\n' +
+      '            </div>\n' +
+      '            <div class="panel-body">\n' +
+      '\n' +
+      '                <p>All transactions are subject to plan provisions.</p>\n' +
+      '                <a name="Instructions"></a>\n' +
+      '                <p>\n' +
+      '                    <strong>Instructions:</strong>\n' +
+      '                </p>\n' +
+      '                <ol class="normalText">\n' +
+      '                    <li>Choose a new payroll contribution.</li>\n' +
+      '                    <li>Click the Submit button.</li>\n' +
+      '                </ol>\n' +
+      '                <p>\n' +
+      '                    <strong>Need Help?</strong>\n' +
+      '                </p>\n' +
+      '                <p>If you think you made a mistake or you need more information about this transaction, contact the Retirement Service Center\n' +
+      '                    <br>at\n' +
+      '                    <span style="white-space:nowrap;">1-888-888-8888</span>.</p>\n' +
+      '            </div>\n' +
+      '        </div>\n' +
+      '\n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '\n' +
+      '\n' +
+      '        </div>\n' +
+      '        <!-- /#page-wrapper -->\n' +
+      '    </div>\n' +
+      '    <!-- /#wrapper -->\n' +
+      '\n' +
+      '    <!-- Bootstrap core JavaScript -->\n' +
+      '    <script src="/vendor/jquery.min.js"></script>\n' +
+      '    <script src="/vendor/bootstrap/bootstrap.js"></script>\n' +
+      '    <script src="/vendor/bootstrap/bootstrap-tour.js"></script>\n' +
+      '\n' +
+      '    <!-- Page Specific Plugins -->\n' +
+      '    <script src="/vendor/chart/raphael-min.js"></script>\n' +
+      '    <script src="/vendor/chart/morris-0.4.3.min.js"></script>\n' +
+      '\n' +
+      '    <script src="/js/chart/chart-data-morris.js"></script>\n' +
+      '\n' +
+      '    <!-- tour steps related js -->\n' +
+      '    <script src="/js/tour/redirects-steps.js"></script>\n' +
+      '\n' +
+      '    <!-- Load environmental scripts such as live reload -->\n' +
+      '    \n' +
+      `    <script>document.write("<script src='http://" + (location.host || "localhost").split(":")[0] + ":35729/livereload.js'></" + "script>");</script>\n` +
+      '    \n' +
+      '\n' +
+      '</body>\n' +
+      '\n' +
+      '</html>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>OWASP Node.js Goat Project</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    
+        <!-- Add custom CSS here -->
+        <link href="/vendor/theme/sb-admin.css" rel="stylesheet">
+        <link rel="stylesheet" href="/vendor/theme/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-tour.css">
+        <!--[if lt IE 9]><script src="/vendor/html5shiv.js"><![endif]-->
+    </head>
+    
+    <body>
+    
+        <div id="wrapper">
+    
+            <!-- Sidebar -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/dashboard">
+                        <span style="font-size: x-large">
+                            <span class="fa fa-bullseye"></span>Retire<b>Easy</b>
+                        </span>
+                        <span style="font-size: medium">Employee Retirement Savings Management</span>
+                    </a>
+                </div>
+    
+                <!--  Nav Links-->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <!--  side nav -->
+                    <ul class="nav navbar-nav side-nav">
+                        
+                        <li><a id="dashboard-menu-link" href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        </li>
+                        <li><a id="contributions-menu-link" href="/contributions"><i class="fa fa-bar-chart-o"></i> Contributions</a>
+                        </li>
+                        <li><a id="allocations-menu-link" href="/allocations/2"><i class="fa fa-table"></i> Allocations</a>
+                        </li>
+                        <li><a id="memos-menu-link" href="/memos"><i class="fa fa-table"></i> Memos</a>
+                        </li>
+                        <li><a id="profile-menu-link" href="/profile"><i class="fa fa-user"></i> Profile</a>
+                        </li>
+                        <li><a id="learn-menu-link" target="_blank" href="/learn?url=https://www.khanacademy.org/economics-finance-domain/core-finance/investment-vehicles-tutorial/ira-401ks/v/traditional-iras"><i class="fa fa-edit"></i> Learning Resources</a>
+                        </li>
+                        <li><a id="research-menu-link" href="/research"><i class="fa fa-table"></i> Research</a>
+                        </li>
+                        
+                        <li><a id="logout-menu-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+    
+                    <!-- top nav -->
+                    <ul class="nav navbar-nav navbar-right navbar-user">
+    
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Doe <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="/profile"><i class="fa fa-user"></i> Profile</a>
+                                </li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+    
+            <div id="page-wrapper">
+    
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- <h1> <small>Contributions</small></h1> -->
+                        <ol class="breadcrumb">
+                            <li class="active"><i class="fa"></i> Contributions</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+    
+                
+    <div class="row">
+        <div class="col-lg-12">
+    
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissable alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Contributions updated successfully.
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+             
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-lg-12">
+    
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        This screen allows you to change the
+                        <strong>payroll percentages</strong> deducted from your paycheck for each
+                        <strong>contribution type</strong>.
+                    </h3>
+                </div>
+                <div class="panel-body">
+    
+    
+    
+                    <div class="table-responsive">
+                        <form method="POST" action="/contributions">
+                            <table class="table table-bordered table-hover tablesorter">
+                                <thead>
+                                    <tr>
+                                        <th>Contribution Type</th>
+                                        <th>Payroll Contribution Percent
+                                            <br>(per pay period)
+                                            <br>
+                                        </th>
+                                        <th>New Payroll Contribution Percent
+                                            <br>(per pay period)
+                                            <br>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+    
+                                    <tr>
+                                        <td>Employee Pre-Tax</td>
+                                        <td>5 %</td>
+                                        <td>
+                                            <input type="text" name="preTax" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roth Contribution</td>
+                                        <td>1 %</td>
+                                        <td>
+                                            <input type="text" name="roth" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employee After Tax</td>
+                                        <td>1 %</td>
+                                        <td>
+                                            <input type="text" name="afterTax" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Fix for A8 - CSRF -->
+                            <!--
+                            <input type="hidden" name="_csrf" value=""></input>
+                            -->
+                            <button type="submit" class="btn btn-default">Submit</button>
+    
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+    
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>Reminder:</strong>
+                </div>
+                <div class="panel-body">
+    
+                    <p>All transactions are subject to plan provisions.</p>
+                    <a name="Instructions"></a>
+                    <p>
+                        <strong>Instructions:</strong>
+                    </p>
+                    <ol class="normalText">
+                        <li>Choose a new payroll contribution.</li>
+                        <li>Click the Submit button.</li>
+                    </ol>
+                    <p>
+                        <strong>Need Help?</strong>
+                    </p>
+                    <p>If you think you made a mistake or you need more information about this transaction, contact the Retirement Service Center
+                        <br>at
+                        <span style="white-space:nowrap;">1-888-888-8888</span>.</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+    
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/bootstrap.js"></script>
+        <script src="/vendor/bootstrap/bootstrap-tour.js"></script>
+    
+        <!-- Page Specific Plugins -->
+        <script src="/vendor/chart/raphael-min.js"></script>
+        <script src="/vendor/chart/morris-0.4.3.min.js"></script>
+    
+        <script src="/js/chart/chart-data-morris.js"></script>
+    
+        <!-- tour steps related js -->
+        <script src="/js/tour/redirects-steps.js"></script>
+    
+        <!-- Load environmental scripts such as live reload -->
+        
+        <script>document.write("<script src='http://" + (location.host || "localhost").split(":")[0] + ":35729/livereload.js'></" + "script>");</script>
+        
+    
+    </body>
+    
+    </html>
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (D:\software\DEvprojects\NodeGoat\test\regression\a1-ssjs-injection.test.js:30:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: security: partially numeric input is rejected
+not ok 3 - security: partially numeric input is rejected
+  ---
+  duration_ms: 14.2084
+  type: 'test'
+  location: 'D:\\software\\DEvprojects\\NodeGoat\\test\\regression\\a1-ssjs-injection.test.js:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /Invalid contribution percentages/. Input:
+    
+    '<!DOCTYPE html>\n' +
+      '<html lang="en">\n' +
+      '\n' +
+      '<head>\n' +
+      '    <meta charset="utf-8">\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+      '    <meta name="description" content="">\n' +
+      '    <meta name="author" content="">\n' +
+      '\n' +
+      '    <title>OWASP Node.js Goat Project</title>\n' +
+      '\n' +
+      '    <!-- Bootstrap core CSS -->\n' +
+      '    <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">\n' +
+      '\n' +
+      '    <!-- Add custom CSS here -->\n' +
+      '    <link href="/vendor/theme/sb-admin.css" rel="stylesheet">\n' +
+      '    <link rel="stylesheet" href="/vendor/theme/font-awesome/css/font-awesome.min.css">\n' +
+      '    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-tour.css">\n' +
+      '    <!--[if lt IE 9]><script src="/vendor/html5shiv.js"><![endif]-->\n' +
+      '</head>\n' +
+      '\n' +
+      '<body>\n' +
+      '\n' +
+      '    <div id="wrapper">\n' +
+      '\n' +
+      '        <!-- Sidebar -->\n' +
+      '        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">\n' +
+      '            <!-- Brand and toggle get grouped for better mobile display -->\n' +
+      '            <div class="navbar-header">\n' +
+      '                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n' +
+      '                    <span class="sr-only">Toggle navigation</span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                    <span class="icon-bar"></span>\n' +
+      '                </button>\n' +
+      '                <a class="navbar-brand" href="/dashboard">\n' +
+      '                    <span style="font-size: x-large">\n' +
+      '                        <span class="fa fa-bullseye"></span>Retire<b>Easy</b>\n' +
+      '                    </span>\n' +
+      '                    <span style="font-size: medium">Employee Retirement Savings Management</span>\n' +
+      '                </a>\n' +
+      '            </div>\n' +
+      '\n' +
+      '            <!--  Nav Links-->\n' +
+      '            <div class="collapse navbar-collapse navbar-ex1-collapse">\n' +
+      '                <!--  side nav -->\n' +
+      '                <ul class="nav navbar-nav side-nav">\n' +
+      '                    \n' +
+      '                    <li><a id="dashboard-menu-link" href="/"><i class="fa fa-dashboard"></i> Dashboard</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="contributions-menu-link" href="/contributions"><i class="fa fa-bar-chart-o"></i> Contributions</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="allocations-menu-link" href="/allocations/2"><i class="fa fa-table"></i> Allocations</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="memos-menu-link" href="/memos"><i class="fa fa-table"></i> Memos</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="profile-menu-link" href="/profile"><i class="fa fa-user"></i> Profile</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="learn-menu-link" target="_blank" href="/learn?url=https://www.khanacademy.org/economics-finance-domain/core-finance/investment-vehicles-tutorial/ira-401ks/v/traditional-iras"><i class="fa fa-edit"></i> Learning Resources</a>\n' +
+      '                    </li>\n' +
+      '                    <li><a id="research-menu-link" href="/research"><i class="fa fa-table"></i> Research</a>\n' +
+      '                    </li>\n' +
+      '                    \n' +
+      '                    <li><a id="logout-menu-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>\n' +
+      '                    </li>\n' +
+      '                </ul>\n' +
+      '\n' +
+      '                <!-- top nav -->\n' +
+      '                <ul class="nav navbar-nav navbar-right navbar-user">\n' +
+      '\n' +
+      '                    <li class="dropdown user-dropdown">\n' +
+      '                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Doe <b class="caret"></b></a>\n' +
+      '                        <ul class="dropdown-menu">\n' +
+      '                            \n' +
+      '                            <li><a href="/profile"><i class="fa fa-user"></i> Profile</a>\n' +
+      '                            </li>\n' +
+      '                            <li class="divider"></li>\n' +
+      '                            \n' +
+      '                            <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a>\n' +
+      '                            </li>\n' +
+      '                        </ul>\n' +
+      '                    </li>\n' +
+      '                </ul>\n' +
+      '            </div>\n' +
+      '            <!-- /.navbar-collapse -->\n' +
+      '        </nav>\n' +
+      '\n' +
+      '        <div id="page-wrapper">\n' +
+      '\n' +
+      '            <div class="row">\n' +
+      '                <div class="col-lg-12">\n' +
+      '                    <!-- <h1> <small>Contributions</small></h1> -->\n' +
+      '                    <ol class="breadcrumb">\n' +
+      '                        <li class="active"><i class="fa"></i> Contributions</li>\n' +
+      '                    </ol>\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '            <!-- /.row -->\n' +
+      '\n' +
+      '            \n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        \n' +
+      '        <div class="row">\n' +
+      '            <div class="col-lg-12">\n' +
+      '                <div class="alert alert-dismissable alert-success">\n' +
+      '                    <button type="button" class="close" data-dismiss="alert">&times;</button>\n' +
+      '                    Contributions updated successfully.\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '        </div>\n' +
+      '        <!-- /.row -->\n' +
+      '         \n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '\n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        <div class="panel panel-info">\n' +
+      '            <div class="panel-heading">\n' +
+      '                <h3 class="panel-title">\n' +
+      '                    This screen allows you to change the\n' +
+      '                    <strong>payroll percentages</strong> deducted from your paycheck for each\n' +
+      '                    <strong>contribution type</strong>.\n' +
+      '                </h3>\n' +
+      '            </div>\n' +
+      '            <div class="panel-body">\n' +
+      '\n' +
+      '\n' +
+      '\n' +
+      '                <div class="table-responsive">\n' +
+      '                    <form method="POST" action="/contributions">\n' +
+      '                        <table class="table table-bordered table-hover tablesorter">\n' +
+      '                            <thead>\n' +
+      '                                <tr>\n' +
+      '                                    <th>Contribution Type</th>\n' +
+      '                                    <th>Payroll Contribution Percent\n' +
+      '                                        <br>(per pay period)\n' +
+      '                                        <br>\n' +
+      '                                    </th>\n' +
+      '                                    <th>New Payroll Contribution Percent\n' +
+      '                                        <br>(per pay period)\n' +
+      '                                        <br>\n' +
+      '                                    </th>\n' +
+      '                                </tr>\n' +
+      '                            </thead>\n' +
+      '                            <tbody>\n' +
+      '\n' +
+      '                                <tr>\n' +
+      '                                    <td>Employee Pre-Tax</td>\n' +
+      '                                    <td>7 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="preTax" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                                <tr>\n' +
+      '                                    <td>Roth Contribution</td>\n' +
+      '                                    <td>1 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="roth" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                                <tr>\n' +
+      '                                    <td>Employee After Tax</td>\n' +
+      '                                    <td>1 %</td>\n' +
+      '                                    <td>\n' +
+      '                                        <input type="text" name="afterTax" value="0"></input>\n' +
+      '                                        <span>%</span>\n' +
+      '                                    </td>\n' +
+      '                                </tr>\n' +
+      '                            </tbody>\n' +
+      '                        </table>\n' +
+      '                        <!-- Fix for A8 - CSRF -->\n' +
+      '                        <!--\n' +
+      '                        <input type="hidden" name="_csrf" value=""></input>\n' +
+      '                        -->\n' +
+      '                        <button type="submit" class="btn btn-default">Submit</button>\n' +
+      '\n' +
+      '                    </form>\n' +
+      '                </div>\n' +
+      '            </div>\n' +
+      '\n' +
+      '        </div>\n' +
+      '        <!-- /.row -->\n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '<div class="row">\n' +
+      '    <div class="col-lg-12">\n' +
+      '\n' +
+      '        <div class="panel panel-default">\n' +
+      '            <div class="panel-heading">\n' +
+      '                <strong>Reminder:</strong>\n' +
+      '            </div>\n' +
+      '            <div class="panel-body">\n' +
+      '\n' +
+      '                <p>All transactions are subject to plan provisions.</p>\n' +
+      '                <a name="Instructions"></a>\n' +
+      '                <p>\n' +
+      '                    <strong>Instructions:</strong>\n' +
+      '                </p>\n' +
+      '                <ol class="normalText">\n' +
+      '                    <li>Choose a new payroll contribution.</li>\n' +
+      '                    <li>Click the Submit button.</li>\n' +
+      '                </ol>\n' +
+      '                <p>\n' +
+      '                    <strong>Need Help?</strong>\n' +
+      '                </p>\n' +
+      '                <p>If you think you made a mistake or you need more information about this transaction, contact the Retirement Service Center\n' +
+      '                    <br>at\n' +
+      '                    <span style="white-space:nowrap;">1-888-888-8888</span>.</p>\n' +
+      '            </div>\n' +
+      '        </div>\n' +
+      '\n' +
+      '    </div>\n' +
+      '</div>\n' +
+      '\n' +
+      '\n' +
+      '\n' +
+      '        </div>\n' +
+      '        <!-- /#page-wrapper -->\n' +
+      '    </div>\n' +
+      '    <!-- /#wrapper -->\n' +
+      '\n' +
+      '    <!-- Bootstrap core JavaScript -->\n' +
+      '    <script src="/vendor/jquery.min.js"></script>\n' +
+      '    <script src="/vendor/bootstrap/bootstrap.js"></script>\n' +
+      '    <script src="/vendor/bootstrap/bootstrap-tour.js"></script>\n' +
+      '\n' +
+      '    <!-- Page Specific Plugins -->\n' +
+      '    <script src="/vendor/chart/raphael-min.js"></script>\n' +
+      '    <script src="/vendor/chart/morris-0.4.3.min.js"></script>\n' +
+      '\n' +
+      '    <script src="/js/chart/chart-data-morris.js"></script>\n' +
+      '\n' +
+      '    <!-- tour steps related js -->\n' +
+      '    <script src="/js/tour/redirects-steps.js"></script>\n' +
+      '\n' +
+      '    <!-- Load environmental scripts such as live reload -->\n' +
+      '    \n' +
+      `    <script>document.write("<script src='http://" + (location.host || "localhost").split(":")[0] + ":35729/livereload.js'></" + "script>");</script>\n` +
+      '    \n' +
+      '\n' +
+      '</body>\n' +
+      '\n' +
+      '</html>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>OWASP Node.js Goat Project</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    
+        <!-- Add custom CSS here -->
+        <link href="/vendor/theme/sb-admin.css" rel="stylesheet">
+        <link rel="stylesheet" href="/vendor/theme/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-tour.css">
+        <!--[if lt IE 9]><script src="/vendor/html5shiv.js"><![endif]-->
+    </head>
+    
+    <body>
+    
+        <div id="wrapper">
+    
+            <!-- Sidebar -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/dashboard">
+                        <span style="font-size: x-large">
+                            <span class="fa fa-bullseye"></span>Retire<b>Easy</b>
+                        </span>
+                        <span style="font-size: medium">Employee Retirement Savings Management</span>
+                    </a>
+                </div>
+    
+                <!--  Nav Links-->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <!--  side nav -->
+                    <ul class="nav navbar-nav side-nav">
+                        
+                        <li><a id="dashboard-menu-link" href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        </li>
+                        <li><a id="contributions-menu-link" href="/contributions"><i class="fa fa-bar-chart-o"></i> Contributions</a>
+                        </li>
+                        <li><a id="allocations-menu-link" href="/allocations/2"><i class="fa fa-table"></i> Allocations</a>
+                        </li>
+                        <li><a id="memos-menu-link" href="/memos"><i class="fa fa-table"></i> Memos</a>
+                        </li>
+                        <li><a id="profile-menu-link" href="/profile"><i class="fa fa-user"></i> Profile</a>
+                        </li>
+                        <li><a id="learn-menu-link" target="_blank" href="/learn?url=https://www.khanacademy.org/economics-finance-domain/core-finance/investment-vehicles-tutorial/ira-401ks/v/traditional-iras"><i class="fa fa-edit"></i> Learning Resources</a>
+                        </li>
+                        <li><a id="research-menu-link" href="/research"><i class="fa fa-table"></i> Research</a>
+                        </li>
+                        
+                        <li><a id="logout-menu-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+    
+                    <!-- top nav -->
+                    <ul class="nav navbar-nav navbar-right navbar-user">
+    
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Doe <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="/profile"><i class="fa fa-user"></i> Profile</a>
+                                </li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+    
+            <div id="page-wrapper">
+    
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- <h1> <small>Contributions</small></h1> -->
+                        <ol class="breadcrumb">
+                            <li class="active"><i class="fa"></i> Contributions</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+    
+                
+    <div class="row">
+        <div class="col-lg-12">
+    
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissable alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Contributions updated successfully.
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+             
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-lg-12">
+    
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        This screen allows you to change the
+                        <strong>payroll percentages</strong> deducted from your paycheck for each
+                        <strong>contribution type</strong>.
+                    </h3>
+                </div>
+                <div class="panel-body">
+    
+    
+    
+                    <div class="table-responsive">
+                        <form method="POST" action="/contributions">
+                            <table class="table table-bordered table-hover tablesorter">
+                                <thead>
+                                    <tr>
+                                        <th>Contribution Type</th>
+                                        <th>Payroll Contribution Percent
+                                            <br>(per pay period)
+                                            <br>
+                                        </th>
+                                        <th>New Payroll Contribution Percent
+                                            <br>(per pay period)
+                                            <br>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+    
+                                    <tr>
+                                        <td>Employee Pre-Tax</td>
+                                        <td>7 %</td>
+                                        <td>
+                                            <input type="text" name="preTax" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roth Contribution</td>
+                                        <td>1 %</td>
+                                        <td>
+                                            <input type="text" name="roth" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employee After Tax</td>
+                                        <td>1 %</td>
+                                        <td>
+                                            <input type="text" name="afterTax" value="0"></input>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Fix for A8 - CSRF -->
+                            <!--
+                            <input type="hidden" name="_csrf" value=""></input>
+                            -->
+                            <button type="submit" class="btn btn-default">Submit</button>
+    
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+    
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>Reminder:</strong>
+                </div>
+                <div class="panel-body">
+    
+                    <p>All transactions are subject to plan provisions.</p>
+                    <a name="Instructions"></a>
+                    <p>
+                        <strong>Instructions:</strong>
+                    </p>
+                    <ol class="normalText">
+                        <li>Choose a new payroll contribution.</li>
+                        <li>Click the Submit button.</li>
+                    </ol>
+                    <p>
+                        <strong>Need Help?</strong>
+                    </p>
+                    <p>If you think you made a mistake or you need more information about this transaction, contact the Retirement Service Center
+                        <br>at
+                        <span style="white-space:nowrap;">1-888-888-8888</span>.</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+    
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/bootstrap.js"></script>
+        <script src="/vendor/bootstrap/bootstrap-tour.js"></script>
+    
+        <!-- Page Specific Plugins -->
+        <script src="/vendor/chart/raphael-min.js"></script>
+        <script src="/vendor/chart/morris-0.4.3.min.js"></script>
+    
+        <script src="/js/chart/chart-data-morris.js"></script>
+    
+        <!-- tour steps related js -->
+        <script src="/js/tour/redirects-steps.js"></script>
+    
+        <!-- Load environmental scripts such as live reload -->
+        
+        <script>document.write("<script src='http://" + (location.host || "localhost").split(":")[0] + ":35729/livereload.js'></" + "script>");</script>
+        
+    
+    </body>
+    
+    </html>
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (D:\software\DEvprojects\NodeGoat\test\regression\a1-ssjs-injection.test.js:37:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: functional: valid whole-number percentages are saved
+ok 4 - functional: valid whole-number percentages are saved
+  ---
+  duration_ms: 11.2479
+  type: 'test'
+  ...
+# Subtest: functional: the 30% cap still applies
+ok 5 - functional: the 30% cap still applies
+  ---
+  duration_ms: 7.0555
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 2
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 243.23
