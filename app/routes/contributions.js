@@ -3,6 +3,9 @@ const {
     environmentalScripts
 } = require("../../config/config");
 
+// Strict parse: parseInt("7abc") === 7, so check the whole string first.
+const parsePercentage = value => /^\s*\d{1,3}\s*$/.test(value) ? parseInt(value, 10) : NaN;
+
 /* The ContributionsHandler must be constructed with a connected db */
 function ContributionsHandler(db) {
     "use strict";
@@ -27,18 +30,11 @@ function ContributionsHandler(db) {
 
     this.handleContributionsUpdate = (req, res, next) => {
 
-        /*jslint evil: true */
-        // Insecure use of eval() to parse inputs
-        const preTax = eval(req.body.preTax);
-        const afterTax = eval(req.body.afterTax);
-        const roth = eval(req.body.roth);
-
-        /*
-        //Fix for A1 -1 SSJS Injection attacks - uses alternate method to eval
-        const preTax = parseInt(req.body.preTax);
-        const afterTax = parseInt(req.body.afterTax);
-        const roth = parseInt(req.body.roth);
-        */
+        // Fix for A1 - SSJS Injection: never eval() request data. Accept only
+        // whole-number strings; anything else becomes NaN and fails validation below.
+        const preTax = parsePercentage(req.body.preTax);
+        const afterTax = parsePercentage(req.body.afterTax);
+        const roth = parsePercentage(req.body.roth);
         const {
             userId
         } = req.session;

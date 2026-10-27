@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: security: contribution fields are not evaluated as JavaScript
+ok 1 - security: contribution fields are not evaluated as JavaScript
+  ---
+  duration_ms: 34.4444
+  type: 'test'
+  ...
+# Subtest: security: expressions are rejected rather than computed
+ok 2 - security: expressions are rejected rather than computed
+  ---
+  duration_ms: 7.5561
+  type: 'test'
+  ...
+# Subtest: security: partially numeric input is rejected
+ok 3 - security: partially numeric input is rejected
+  ---
+  duration_ms: 6.0952
+  type: 'test'
+  ...
+# Subtest: functional: valid whole-number percentages are saved
+ok 4 - functional: valid whole-number percentages are saved
+  ---
+  duration_ms: 17.3526
+  type: 'test'
+  ...
+# Subtest: functional: the 30% cap still applies
+ok 5 - functional: the 30% cap still applies
+  ---
+  duration_ms: 6.2622
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 218.6259
